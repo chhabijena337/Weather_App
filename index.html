@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkyCast | Weather Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main class="weather-app">
+        <header class="topbar">
+            <a href="#" class="brand">
+                <i class="bi bi-cloud-sun-fill"></i>
+                SkyCast
+            </a>
+
+            <span class="live-label">
+                <span class="live-dot"></span>
+                Live Weather
+            </span>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow">YOUR DAILY WEATHER UPDATE</p>
+                <h1>Discover your<br>local weather.</h1>
+                <p class="hero-text">
+                    Stay prepared for every kind of weather.
+                </p>
+
+                <form id="searchForm" class="search-box">
+                    <i class="bi bi-geo-alt"></i>
+                    <input
+                        id="txtCity"
+                        type="text"
+                        placeholder="Search a city..."
+                        aria-label="City name"
+                        required
+                    >
+                    <button type="submit" aria-label="Search city">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+
+                <div class="quick-cities">
+                    <span>Popular:</span>
+                    <button type="button" data-city="Hyderabad">Hyderabad</button>
+                    <button type="button" data-city="Delhi">Delhi</button>
+                    <button type="button" data-city="Mumbai">Mumbai</button>
+                    <button type="button" data-city="Chennai">Chennai</button>
+                </div>
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+                <div class="sun"></div>
+                <div class="cloud cloud-one"></div>
+                <div class="cloud cloud-two"></div>
+                <div class="rain rain-one"></div>
+                <div class="rain rain-two"></div>
+                <div class="rain rain-three"></div>
+            </div>
+        </section>
+
+        <section class="weather-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CURRENT CONDITIONS</p>
+                    <h2>Today's weather</h2>
+                </div>
+                <span id="updatedLabel">Waiting for weather...</span>
+            </div>
+
+            <div id="errorMessage" class="error-message" role="alert" hidden></div>
+
+            <div id="loadingMessage" class="loading-message" hidden>
+                <span class="spinner-border spinner-border-sm"></span>
+                Loading weather...
+            </div>
+
+            <div class="weather-grid">
+                <article class="current-card">
+                    <div class="current-top">
+                        <div>
+                            <p class="muted-label">WEATHER IN</p>
+                            <h3 id="lblCity">Hyderabad</h3>
+                            <p id="lblDescription" class="weather-description">
+                                Getting conditions...
+                            </p>
+                        </div>
+
+                        <img
+                            id="weatherIcon"
+                            class="weather-icon"
+                            src="https://openweathermap.org/img/wn/01d@2x.png"
+                            alt="Current weather icon"
+                        >
+                    </div>
+
+                    <div class="temperature-row">
+                        <span id="lblTemp" class="temperature">--°</span>
+                        <span class="temperature-unit">C</span>
+                    </div>
+
+                    <p id="feelsLike" class="feels-like">
+                        Feels like --°C
+                    </p>
+
+                    <div class="current-footer">
+                        <span><i class="bi bi-sunrise"></i> Weather at a glance</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </div>
+                </article>
+
+                <article class="detail-card">
+                    <div class="detail-icon humidity-icon">
+                        <i class="bi bi-droplet-half"></i>
+                    </div>
+                    <p class="muted-label">HUMIDITY</p>
+                    <h3 id="lblHumidity">--%</h3>
+                    <p class="detail-note">Moisture in the air</p>
+                </article>
+
+                <article class="detail-card">
+                    <div class="detail-icon wind-icon">
+                        <i class="bi bi-wind"></i>
+                    </div>
+                    <p class="muted-label">WIND SPEED</p>
+                    <h3 id="lblSpeed">-- km/h</h3>
+                    <p class="detail-note">Current wind conditions</p>
+                </article>
+
+                <article class="detail-card">
+                    <div class="detail-icon pressure-icon">
+                        <i class="bi bi-speedometer2"></i>
+                    </div>
+                    <p class="muted-label">PRESSURE</p>
+                    <h3 id="lblPressure">-- hPa</h3>
+                    <p class="detail-note">Atmospheric pressure</p>
+                </article>
+
+                <article class="detail-card">
+                    <div class="detail-icon visibility-icon">
+                        <i class="bi bi-eye"></i>
+                    </div>
+                    <p class="muted-label">VISIBILITY</p>
+                    <h3 id="lblVisibility">-- km</h3>
+                    <p class="detail-note">Distance you can see</p>
+                </article>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <span><i class="bi bi-cloud-sun"></i> SkyCast Weather</span>
+            <span>Weather data powered by OpenWeatherMap</span>
+        </footer>
+    </main>
+</body>
+</html>
